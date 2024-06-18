@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiModel.MainPage"
+             Background="Gray">
+
+
+    <Grid Margin="4" RowSpacing="8">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Button Background="Purple" TextColor="White" Text="Új játék" Command="{Binding NewGameCommand}" Grid.Row="0" HorizontalOptions="Start" />
+        <Button Background="Purple" TextColor="White" Text="Beállítások" Command="{Binding ExitCommand}" Grid.Row="0" HorizontalOptions="End" />
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Button Background="Purple" TextColor="White" Text="⇦" Command="{Binding MoveLeft}" Grid.Column="0" Grid.Row="1" FontSize="20" />
+            <Button Background="Purple" TextColor="White" Text="⇧" Command="{Binding MoveUp}" Grid.Column="1" Grid.Row="0" FontSize="20" />
+            <Button Background="Purple" TextColor="White" Text="⇩" Command="{Binding MoveDown}" Grid.Column="1" Grid.Row="2" FontSize="20" />
+            <Button Background="Purple" TextColor="White" Text="⇨" Command="{Binding MoveRight}" Grid.Column="2" Grid.Row="1" FontSize="20" />
+
+        </Grid>
+
+        <HorizontalStackLayout HorizontalOptions="Start" Grid.Row="3">
+            <Label Text="Játékidő: " />
+            <Label Text="{Binding GameTime}" />
+        </HorizontalStackLayout>
+
+        <Grid
+            Grid.Row="1"
+            BindableLayout.ItemsSource="{Binding Fields}"
+            RowDefinitions="{Binding GameTableRows}"
+            ColumnDefinitions="{Binding GameTableColumns}"
+            ColumnSpacing="0"
+            RowSpacing="0">
+
+            <BindableLayout.ItemTemplate>
+                
+                <DataTemplate>
+                    <!-- a rács elemei gombok lesznek -->
+                    <Label
+                        Grid.Row="{Binding Y}"
+                        Grid.Column="{Binding X}"
+                        VerticalOptions="FillAndExpand"
+                        HorizontalOptions="FillAndExpand">
+
+                        <Label.Triggers>
+                            <DataTrigger TargetType="Label" Binding="{Binding IsPlayer}" Value="True">
+                                <Setter Property="BackgroundColor" Value="Pink" />
+                            </DataTrigger>
+
+                            <DataTrigger TargetType="Label" Binding="{Binding IsLitAndNotIsPlayer}" Value="True">
+                                <Setter Property="BackgroundColor" Value="Yellow" />
+                            </DataTrigger>
+
+                            <DataTrigger TargetType="Label" Binding="{Binding NotIsLitAndNotIsPlayer}" Value="True">
+                                <Setter Property="BackgroundColor" Value="Black" />
+                            </DataTrigger>
+                        </Label.Triggers>
+                        
+                    </Label>
+                </DataTemplate>
+            
+            </BindableLayout.ItemTemplate>
+        </Grid>
+
+        
+
+
+
+    </Grid>
+    
+</ContentPage>

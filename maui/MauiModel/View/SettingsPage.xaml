@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiModel.SettingsPage"
+             Title="Beállítások">
+    
+    <VerticalStackLayout Spacing="8" Margin="4" HorizontalOptions="CenterAndExpand">
+        <Button Command="{Binding LoadGameCommand}" Text="Betöltés" />
+        <Button Command="{Binding SaveGameCommand}" Text="Mentés" />
+
+        <Picker
+            Title="Játéknehézség kiválasztása:"
+            HorizontalTextAlignment="Center"
+            ItemsSource="{Binding DifficultyLevels}"
+            ItemDisplayBinding="{Binding DifficultyText}"
+            SelectedItem="{Binding Difficulty}" />
+
+        <Label Text="Szünet" HorizontalOptions="Center"/>
+        <Switch x:Name="mySwitch" IsToggled="{Binding IsGamePaused}" HorizontalOptions="Center"/>
+        
+    </VerticalStackLayout>
+    
+</ContentPage>
