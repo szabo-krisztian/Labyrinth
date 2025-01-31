@@ -27,18 +27,3 @@ Below are some preview images showcasing the different implementations.
 ![image](https://github.com/szabo-krisztian/Labyrinth/blob/master/images/win-forms-gameplay1.png?raw=true)
 
 ![image](https://github.com/szabo-krisztian/Labyrinth/blob/master/images/win-forms-gameplay2.png?raw=true)
-
-## WPF
-
-![image](https://github.com/szabo-krisztian/Labyrinth/blob/master/images/wpf-gameplay.png?raw=true)
-
-![image](https://github.com/szabo-krisztian/Labyrinth/blob/master/images/wpf-menu.png?raw=true)
-
-![image](https://github.com/szabo-krisztian/Labyrinth/blob/master/images/wpf-save-load.png?raw=true)
-
-## MAUI
-
-![image](https://github.com/szabo-krisztian/Labyrinth/blob/master/images/maui-gameplay.png?raw=true)
-![image](https://github.com/szabo-krisztian/Labyrinth/blob/master/images/maui-menu.png?raw=true)
-![image](https://github.com/szabo-krisztian/Labyrinth/blob/master/images/maui-load.png?raw=true)
-![image](https://github.com/szabo-krisztian/Labyrinth/blob/master/images/maui-save.png?raw=true)
